@@ -3,7 +3,7 @@ package com.rubin.bean;
 import java.io.Serializable;
 
 /**
- * Created by rubin on 16-1-20.
+ * Created by RubinCarter on 16-1-20.
  */
 public class DemoBean implements Serializable {
 

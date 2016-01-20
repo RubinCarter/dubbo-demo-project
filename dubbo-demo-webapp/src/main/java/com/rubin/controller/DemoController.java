@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 
 /**
- * Created by rubin on 16-1-20.
+ * Created by RubinCarter on 16-1-20.
  */
 @Controller
 @RequestMapping("/demo")

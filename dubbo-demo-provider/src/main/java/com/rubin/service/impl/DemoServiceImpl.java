@@ -5,7 +5,7 @@ import com.rubin.service.DemoService;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by rubin on 16-1-20.
+ * Created by RubinCarter on 16-1-20.
  */
 @Service("demoService")
 public class DemoServiceImpl implements DemoService {

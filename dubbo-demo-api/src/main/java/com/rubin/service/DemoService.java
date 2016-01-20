@@ -3,7 +3,7 @@ package com.rubin.service;
 import com.rubin.bean.DemoBean;
 
 /**
- * Created by rubin on 16-1-20.
+ * Created by RubinCarter on 16-1-20.
  */
 public interface DemoService {
 
