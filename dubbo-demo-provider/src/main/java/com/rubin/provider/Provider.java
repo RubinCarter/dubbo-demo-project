@@ -16,7 +16,7 @@ public class Provider {
     public static void main(String args[]) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/applicationContext-*.xml");
         context.start();
-        LOGGER.debug("我是{}", "ss");
+        LOGGER.debug("start end");
         System.in.read();
     }
 
