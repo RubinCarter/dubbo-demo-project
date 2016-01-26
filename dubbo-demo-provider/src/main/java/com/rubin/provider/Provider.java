@@ -1,5 +1,7 @@
 package com.rubin.provider;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
@@ -9,9 +11,12 @@ import java.io.IOException;
  */
 public class Provider {
 
+    private final static Logger LOGGER = LogManager.getLogger(Provider.class);
+
     public static void main(String args[]) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/applicationContext-*.xml");
         context.start();
+        LOGGER.debug("我是{}", "ss");
         System.in.read();
     }
 
