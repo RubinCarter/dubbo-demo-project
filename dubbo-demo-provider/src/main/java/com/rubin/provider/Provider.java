@@ -1,7 +1,7 @@
 package com.rubin.provider;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.alibaba.dubbo.common.logger.Logger;
+import com.alibaba.dubbo.common.logger.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
@@ -11,12 +11,14 @@ import java.io.IOException;
  */
 public class Provider {
 
-    private final static Logger LOGGER = LogManager.getLogger(Provider.class);
+//    private final static Logger LOGGER = LogManager.getLogger(Provider.class);
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(Provider.class);
 
     public static void main(String args[]) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/applicationContext-*.xml");
         context.start();
-        LOGGER.debug("start end");
+        LOGGER.error("start end", new NullPointerException());
         System.in.read();
     }
 

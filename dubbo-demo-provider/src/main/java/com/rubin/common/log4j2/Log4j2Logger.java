@@ -6,78 +6,79 @@ import com.alibaba.dubbo.common.logger.Logger;
 import com.alibaba.dubbo.common.logger.support.FailsafeLogger;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
+import org.apache.logging.log4j.spi.ExtendedLogger;
 
 /**
  * Created by RubinCarter on 16-1-27.
  */
 public class Log4j2Logger implements Logger {
 
-	private static final Marker FQCN_MARKER = MarkerManager.getMarker(FailsafeLogger.class.getName());
+	private static final String FQCN = FailsafeLogger.class.getName();
 
-	private final org.apache.logging.log4j.Logger logger;
+	private final ExtendedLogger logger;
 
-	public Log4j2Logger(org.apache.logging.log4j.Logger logger) {
+	public Log4j2Logger(ExtendedLogger logger) {
 		this.logger = logger;
 	}
 
 	public void trace(String msg) {
-		logger.log(Level.TRACE, FQCN_MARKER, msg);
+		logger.logIfEnabled(FQCN, Level.TRACE, null, msg);
 	}
 
 	public void trace(Throwable e) {
-		logger.log(Level.TRACE, FQCN_MARKER, e == null ? null : e.getMessage(), e);
+		logger.logIfEnabled(FQCN, Level.TRACE, null, e == null ? null : e.getMessage(), e);
 	}
 
 	public void trace(String msg, Throwable e) {
-		logger.log(Level.TRACE, FQCN_MARKER, msg, e);
+		logger.logIfEnabled(FQCN, Level.TRACE, null, msg, e);
 	}
 
 	public void debug(String msg) {
-		logger.log(Level.DEBUG, msg);
+		logger.logIfEnabled(FQCN, Level.DEBUG, null, msg);
 	}
 
 	public void debug(Throwable e) {
-		logger.log(Level.DEBUG, FQCN_MARKER, e == null ? null : e.getMessage(), e);
+		logger.logIfEnabled(FQCN, Level.DEBUG, null, e == null ? null : e.getMessage(), e);
 	}
 
 	public void debug(String msg, Throwable e) {
-		logger.log(Level.DEBUG, FQCN_MARKER, msg, e);
+		logger.logIfEnabled(FQCN, Level.DEBUG, null, msg, e);
 	}
 
 	public void info(String msg) {
-		logger.log(Level.INFO, FQCN_MARKER, msg);
+		logger.logIfEnabled(FQCN, Level.INFO, null, msg);
 	}
 
 	public void info(Throwable e) {
-		logger.log(Level.INFO, FQCN_MARKER, e == null ? null : e.getMessage(), e);
+		logger.logIfEnabled(FQCN, Level.INFO, null, e == null ? null : e.getMessage(), e);
 	}
 
 	public void info(String msg, Throwable e) {
-		logger.log(Level.INFO, FQCN_MARKER, msg, e);
+		logger.logIfEnabled(FQCN, Level.INFO, null, msg, e);
 	}
 
 	public void warn(String msg) {
-		logger.log(Level.WARN, FQCN_MARKER, msg);
+		logger.logIfEnabled(FQCN, Level.WARN, null, msg);
 	}
 
 	public void warn(Throwable e) {
-		logger.log(Level.WARN, FQCN_MARKER, e == null ? null : e.getMessage(), e);
+		logger.logIfEnabled(FQCN, Level.WARN, null, e == null ? null : e.getMessage(), e);
 	}
 
 	public void warn(String msg, Throwable e) {
-		logger.log(Level.WARN, FQCN_MARKER, msg, e);
+		logger.logIfEnabled(FQCN, Level.WARN, null, msg, e);
 	}
 
 	public void error(String msg) {
-		logger.log(Level.ERROR, FQCN_MARKER, msg);
+		logger.logIfEnabled(FQCN, Level.ERROR, null, msg);
 	}
 
 	public void error(Throwable e) {
-		logger.log(Level.ERROR, FQCN_MARKER, e == null ? null : e.getMessage(), e);
+		logger.logIfEnabled(FQCN, Level.ERROR, null, e == null ? null : e.getMessage(), e);
 	}
 
 	public void error(String msg, Throwable e) {
-		logger.log(Level.ERROR, FQCN_MARKER, msg, e);
+		logger.logIfEnabled(FQCN, Level.ERROR, null, msg, e);
 	}
 
 	public boolean isTraceEnabled() {

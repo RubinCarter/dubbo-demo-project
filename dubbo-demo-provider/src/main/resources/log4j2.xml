@@ -11,7 +11,7 @@
     <appenders>
         <!-- 定义控制台输出 -->
         <Console name="Console" target="SYSTEM_OUT" follow="true">
-            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
         </Console>
         <!-- 程序员调试日志 -->
         <RollingRandomAccessFile name="DevLog"  fileName="${LOG_HOME}/${SERVER_NAME}" filePattern="${LOG_HOME}/${SERVER_NAME}.%d{yyyy-MM-dd-HH}.log">
@@ -20,7 +20,8 @@
                 <TimeBasedTriggeringPolicy interval="1" modulate="true" />
             </Policies>
         </RollingRandomAccessFile>
-    </appenders>
+
+</appenders>
     <loggers>
         <!-- 3rdparty Loggers -->
         <logger name="org.springframework.core" level="info"/>
@@ -31,7 +32,7 @@
         <logger name="org.jboss.netty" level="warn"/>
         <logger name="org.apache.http" level="warn"/>
         <!-- Root Logger -->
-        <root level="debug">
+        <root level="info">
             <appender-ref ref="DevLog" />
             <appender-ref ref="Console" />
         </root>

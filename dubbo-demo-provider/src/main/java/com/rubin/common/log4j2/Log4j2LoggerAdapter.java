@@ -5,9 +5,14 @@ import com.alibaba.dubbo.common.logger.Logger;
 import com.alibaba.dubbo.common.logger.LoggerAdapter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Appender;
+import org.apache.logging.log4j.core.appender.AbstractOutputStreamAppender;
 import org.apache.logging.log4j.core.appender.FileAppender;
+import org.apache.logging.log4j.core.appender.FileManager;
+import org.apache.logging.log4j.spi.ExtendedLogger;
 
 import java.io.File;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
@@ -37,11 +42,11 @@ public class Log4j2LoggerAdapter implements LoggerAdapter {
     }
 
     public Logger getLogger(Class<?> key) {
-        return new Log4j2Logger(LogManager.getLogger(key));
+        return new Log4j2Logger((ExtendedLogger)LogManager.getLogger(key));
     }
 
     public Logger getLogger(String key) {
-        return new Log4j2Logger(LogManager.getLogger(key));
+        return new Log4j2Logger((ExtendedLogger)LogManager.getLogger(key));
     }
 
     public void setLevel(Level level) {
