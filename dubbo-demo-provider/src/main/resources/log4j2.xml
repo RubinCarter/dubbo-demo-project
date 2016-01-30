@@ -27,8 +27,7 @@
         <logger name="org.springframework.core" level="info"/>
         <logger name="org.springframework.beans" level="info"/>
         <logger name="org.springframework.context" level="info"/>
-        <!--<logger name="org.springframework.web" level="info"/>-->
-        <!--<logger name="at com.alibaba.dubbo.config.spring.ServiceBean" level="warn"/>-->
+        <logger name="com.alibaba.dubbo.config.AbstractConfig" level="error"/>
         <logger name="org.jboss.netty" level="warn"/>
         <logger name="org.apache.http" level="warn"/>
         <!-- Root Logger -->

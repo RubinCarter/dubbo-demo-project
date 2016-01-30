@@ -8,11 +8,10 @@ import org.apache.logging.log4j.core.Appender;
 import org.apache.logging.log4j.core.appender.AbstractOutputStreamAppender;
 import org.apache.logging.log4j.core.appender.FileAppender;
 import org.apache.logging.log4j.core.appender.FileManager;
+import org.apache.logging.log4j.core.appender.OutputStreamManager;
 import org.apache.logging.log4j.spi.ExtendedLogger;
 
 import java.io.File;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
@@ -29,9 +28,13 @@ public class Log4j2LoggerAdapter implements LoggerAdapter {
                 Map<String, Appender> appenders = logger.getAppenders();
                 if(appenders != null) {
                     for (Appender appender : appenders.values()) {
-                        if(appender instanceof FileAppender) {
-                            file = new File(((FileAppender)appender).getFileName());
-                            break;
+                        if(appender instanceof AbstractOutputStreamAppender) {
+                            OutputStreamManager manager = ((AbstractOutputStreamAppender) appender).getManager();
+                            if(manager instanceof FileManager) {
+                                String fileName = ((FileManager) manager).getFileName();
+                                file = new File(fileName);
+                                break;
+                            }
                         }
                     }
                 }
