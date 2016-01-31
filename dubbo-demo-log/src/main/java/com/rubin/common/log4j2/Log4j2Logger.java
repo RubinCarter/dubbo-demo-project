@@ -4,8 +4,6 @@ import org.apache.logging.log4j.Level;
 
 import com.alibaba.dubbo.common.logger.Logger;
 import com.alibaba.dubbo.common.logger.support.FailsafeLogger;
-import org.apache.logging.log4j.Marker;
-import org.apache.logging.log4j.MarkerManager;
 import org.apache.logging.log4j.spi.ExtendedLogger;
 
 /**
