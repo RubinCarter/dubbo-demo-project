@@ -1,19 +1,18 @@
-package com.rubin.service.impl;
+package com.rubin.provider.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.rubin.bean.DemoBean;
 import com.rubin.service.DemoService;
-import org.springframework.stereotype.Service;
 
 /**
  * Created by RubinCarter on 16-1-20.
  */
-@Service("demoService")
+@Service(version = "1.0")
 public class DemoServiceImpl implements DemoService {
 
-    @Override
     public DemoBean sayHello(DemoBean bean) {
-        bean.setAge("23")
-                .setName("rubin");
+        bean.setAge("23");
+        bean.setName("rubin");
         return bean;
     }
 
