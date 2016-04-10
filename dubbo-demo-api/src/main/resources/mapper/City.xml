@@ -5,4 +5,7 @@
     <select id="selectCityByName" resultType="City">
         SELECT * FROM CITY WHERE NAME = #{name}
     </select>
+    <insert id="insertCity">
+        INSERT INTO CITY(NAME, STATE, COUNTRY) VALUES(#{name}, #{state}, #{country})
+    </insert>
 </mapper>

@@ -14,6 +14,7 @@ public class City implements Serializable {
 
     private String id;
     private String name;
-    private String age;
+    private String state;
+    private String country;
 
 }

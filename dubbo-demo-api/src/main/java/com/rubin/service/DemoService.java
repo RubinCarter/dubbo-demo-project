@@ -9,4 +9,6 @@ public interface DemoService {
 
     City sayHello(City bean);
 
+    void insertCity(City city);
+
 }

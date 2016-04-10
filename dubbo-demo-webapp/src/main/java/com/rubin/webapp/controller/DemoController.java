@@ -27,6 +27,17 @@ public class DemoController {
         return city;
     }
 
+    @ResponseBody
+    @RequestMapping("/insertCity")
+    public String insertCity() {
+        City city = new City();
+        city.setName("bin");
+        city.setCountry("Cn");
+        city.setState("2");
+        demoService.insertCity(city);
+        return "true";
+    }
+
     public void setDemoService(final DemoService demoService) {
         this.demoService = demoService;
     }

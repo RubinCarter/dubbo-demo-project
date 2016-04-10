@@ -9,4 +9,6 @@ public interface CityMapper {
 
     City selectCityByName(String name);
 
+    void insertCity(City city);
+
 }
