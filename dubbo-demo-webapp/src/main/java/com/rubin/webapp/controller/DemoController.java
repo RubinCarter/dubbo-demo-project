@@ -2,13 +2,11 @@ package com.rubin.webapp.controller;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.rubin.bean.DemoBean;
+import com.rubin.domain.City;
 import com.rubin.service.DemoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.annotation.Resource;
 
 /**
  * Created by RubinCarter on 16-1-20.
@@ -22,9 +20,11 @@ public class DemoController {
 
     @ResponseBody
     @RequestMapping("/sayHello")
-    public DemoBean sayHello(String id) {
-        DemoBean demoBean = demoService.sayHello(new DemoBean());
-        return demoBean;
+    public City sayHello(String id) {
+        City city = new City();
+        city.setName("Rubin");
+        city =  demoService.sayHello(city);
+        return city;
     }
 
     public void setDemoService(final DemoService demoService) {
