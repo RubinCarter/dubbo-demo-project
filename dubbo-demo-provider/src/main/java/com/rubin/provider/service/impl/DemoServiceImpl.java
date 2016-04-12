@@ -1,21 +1,20 @@
 package com.rubin.provider.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.rubin.domain.City;
 import com.rubin.mapper.CityMapper;
 import com.rubin.service.DemoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by RubinCarter on 16-1-20.
  */
-@Service
+@Service(version = "1.0")
 public class DemoServiceImpl implements DemoService {
 
-    @Autowired
-    private CityMapper mapper;
+    private final CityMapper mapper;
 
     public City sayHello(City city) {
         city = mapper.selectCityByName(city.getName());
@@ -26,17 +25,14 @@ public class DemoServiceImpl implements DemoService {
     public void insertCity(City city) {
         mapper.insertCity(city);
         mapper.insertCity(city);
-        /*if(true) {
+        if(true) {
             throw new RuntimeException("lll");
-        }*/
+        }
     }
 
-//    @Autowired
-//    public DemoServiceImpl(final CityMapper mapper) {
-//        this.mapper = mapper;
-//    }
-
-    public void setMapper(final CityMapper mapper) {
+    @Autowired
+    public DemoServiceImpl(final CityMapper mapper) {
         this.mapper = mapper;
     }
+
 }
